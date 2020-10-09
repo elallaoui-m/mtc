@@ -1,21 +1,21 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import Home from '../components/HelloWorld.vue';
-import Hello from '../components/Hello.vue'
+import Form from '../components/Form.vue';
+import Home from '../components/Home.vue'
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: '/mtc',
-    name: 'Home',
-    component: Home,
+    name: 'Form',
+    component: Form,
   },
   {
     path: '/',
-    name: 'Hello',
-    component: Hello,
+    name: 'Home',
+    component: Home,
   },
  
 ];
