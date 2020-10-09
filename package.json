@@ -10,17 +10,19 @@
   },
   "dependencies": {
     "@mdi/font": "^3.6.95",
-    "ant-design-vue": "^1.6.5",
     "babel-plugin-import": "^1.13.0",
     "core-js": "^3.6.5",
-    "formik": "^2.2.0",
     "prettier": "^2.1.2",
     "roboto-fontface": "*",
+    "sass": "^1.27.0",
+    "sass-loader": "^10.0.3",
     "vue": "^2.6.11",
     "vue-router": "^3.4.6",
+    "vue-simpleform": "^1.0.5",
+    "vue-stepper": "^1.4.2",
+    "vuelidate": "^0.7.5",
     "vuetify": "^2.2.11",
-    "vuex": "^3.5.1",
-    "yup": "^0.29.3"
+    "vuex": "^3.5.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
