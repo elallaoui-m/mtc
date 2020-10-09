@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app :style="{ background: '#FBF0F1' }">
     <v-app-bar app color="#b70016" dark>
       <div class="d-flex align-center">
         <v-img
@@ -14,21 +14,14 @@
     </v-app-bar>
 
     <v-main>
-      <HelloWorld />
+      <router-view />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
-
 export default {
   name: "App",
-
-  components: {
-    HelloWorld,
-  },
-
   data: () => ({
     //
   }),
