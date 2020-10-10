@@ -24,7 +24,7 @@ import HorizontalStepper from "vue-stepper";
 // This components will have the content for each stepper step.
 import StepOne from "./Steps/StepOne.vue";
 import StepTwo from "./Steps/StepTwo.vue";
-import StepThree from "./Steps/StepThree.vue";
+import StepThree from "./Steps/StepThree.vue";  
 import StepFour from "./Steps/StepFour.vue";
 import StepFive from "./Steps/StepFive.vue";
 import StepSix from "./Steps/StepSix.vue";

@@ -1,49 +1,137 @@
 <template>
   <div style="padding: 2rem 3rem; text-align: left">
     <div class="field">
-      <label class="label">Username</label>
-      <div class="control">
-        <input
-          :class="['input', $v.form.username.$error ? 'is-danger' : '']"
-          type="text"
-          placeholder="Text input"
-          v-model="form.username"
-        />
-      </div>
-      <p v-if="$v.form.username.$error" class="help is-danger">
-        This username is invalid
-      </p>
-    </div>
-    <div class="field">
-      <label class="label">Email</label>
-      <div class="control">
-        <input
-          :class="['input', $v.form.demoEmail.$error ? 'is-danger' : '']"
-          type="text"
-          placeholder="Email input"
-          v-model="form.demoEmail"
-        />
-      </div>
-      <p v-if="$v.form.demoEmail.$error" class="help is-danger">
-        This email is invalid
-      </p>
-    </div>
-    <div class="field">
-      <label class="label">Message</label>
-      <div class="control">
-        <textarea
-          :class="['textarea', $v.form.message.$error ? 'is-danger' : '']"
-          placeholder="Textarea"
-          v-model="form.message"
-        ></textarea>
-      </div>
+      <v-row align="center">
+        <v-col class="d-flex" cols="12" sm="12">
+          <div class="field">
+            <v-combobox
+              v-model="form.yourQualities"
+              :items="qualities"
+              :search-input.sync="search"
+              hide-selected
+              hint="Maximum 3"
+              label="Ajouter 3 de vos qualitées"
+              multiple
+              persistent-hint
+              small-chips
+            >
+              <template v-slot:no-data>
+                <v-list-item>
+                  <v-list-item-content>
+                    <v-list-item-title>
+                      Aucun resultat "<strong>{{ search }}</strong
+                      >". Taper <kbd>enter</kbd> pour l'ajoutée
+                    </v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+              </template>
+            </v-combobox>
+            <p v-if="$v.form.yourQualities.$error" class="help is-danger">
+              Champs requis
+            </p>
+          </div>
+        </v-col>
+      </v-row>
+      <v-row align="center">
+        <v-col class="d-flex" cols="12" sm="12">
+          <div class="field">
+            <v-combobox
+              v-model="form.herQualities"
+              :items="qualities"
+              :search-input.sync="search"
+              hide-selected
+              hint="Maximum 3"
+              label="Ajouter 3 de ses qualitées"
+              multiple
+              persistent-hint
+              small-chips
+            >
+              <template v-slot:no-data>
+                <v-list-item>
+                  <v-list-item-content>
+                    <v-list-item-title>
+                      Aucun resultat "<strong>{{ search }}</strong
+                      >". Taper <kbd>enter</kbd> pour l'ajoutée
+                    </v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+              </template>
+            </v-combobox>
+            <p v-if="$v.form.herQualities.$error" class="help is-danger">
+              Champs requis
+            </p>
+          </div>
+        </v-col>
+      </v-row>
+      <v-row align="center">
+        <v-col class="d-flex" cols="12" sm="12">
+          <div class="field">
+            <v-combobox
+              v-model="form.yourfouls"
+              :items="fouls"
+              :search-input.sync="search"
+              hide-selected
+              hint="Maximum 3"
+              label="Ajouter 3 de vos defauts"
+              multiple
+              persistent-hint
+              small-chips
+            >
+              <template v-slot:no-data>
+                <v-list-item>
+                  <v-list-item-content>
+                    <v-list-item-title>
+                      Aucun resultat "<strong>{{ search }}</strong
+                      >". Taper <kbd>enter</kbd> pour l'ajoutée
+                    </v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+              </template>
+            </v-combobox>
+            <p v-if="$v.form.yourfouls.$error" class="help is-danger">
+              Champs requis
+            </p>
+          </div>
+        </v-col>
+      </v-row>
+      <v-row align="center">
+        <v-col class="d-flex" cols="12" sm="12">
+          <div class="field">
+            <v-combobox
+              v-model="form.herfouls"
+              :items="fouls"
+              :search-input.sync="search"
+              hide-selected
+              hint="Maximum 3"
+              label="Ajouter"
+              multiple
+              persistent-hint
+              small-chips
+            >
+              <template v-slot:no-data>
+                <v-list-item>
+                  <v-list-item-content>
+                    <v-list-item-title>
+                      Aucun resultat "<strong>{{ search }}</strong
+                      >". Taper <kbd>enter</kbd> pour l'ajoutée
+                    </v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+              </template>
+            </v-combobox>
+            <p v-if="$v.form.herfouls.$error" class="help is-danger">
+              Champs requis
+            </p>
+          </div>
+        </v-col>
+      </v-row>
     </div>
   </div>
 </template>
 
 <script>
 import { validationMixin } from "vuelidate";
-import { required, email } from "vuelidate/lib/validators";
+import { required } from "vuelidate/lib/validators";
 
 export default {
   props: ["clickedNext", "currentStep"],
@@ -51,22 +139,27 @@ export default {
   data() {
     return {
       form: {
-        username: "",
-        demoEmail: "",
-        message: "",
+        yourQualities: [""],
+        herQualities: [""],
+        yourfouls: [""],
+        herfouls: [""],
       },
+      qualities: ["Adorable", "Aimable", "Amusante"],
+      fouls: ["Agressive", "Aigri", "Anxieux"],
     };
   },
   validations: {
     form: {
-      username: {
+      yourQualities: {
         required,
       },
-      demoEmail: {
+      herQualities: {
         required,
-        email,
       },
-      message: {
+      yourfouls: {
+        required,
+      },
+      herfouls: {
         required,
       },
     },
@@ -79,12 +172,17 @@ export default {
         } else {
           this.$emit("can-continue", { value: false });
         }
-      },  
+      },
       deep: true,
     },
     clickedNext(val) {
       if (val === true) {
         this.$v.form.$touch();
+      }
+    },
+    model(val) {
+      if (val.length > 3) {
+        this.$nextTick(() => this.model.pop());
       }
     },
   },

@@ -143,12 +143,12 @@ export default {
       form: {
         danse: "non",
         sport: "non",
-        pratiquant: "",
-        centre: "non",
+        pratiquant: "non",
+        centre: ["danser"],
         danseHer: "non",
         sportHer: "non",
         pratiquantHer: "non",
-        centreHer: "",
+        centreHer: ["danser"],
       },
       items: ["danser"],
     };

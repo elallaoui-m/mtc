@@ -2,7 +2,7 @@
   <div style="padding: 2rem 3rem; text-align: left">
     <div class="field">
       <v-row align="center">
-        <v-col class="d-flex" cols="12" sm="6">
+        <v-col class="d-flex" cols="12" sm="12">
           <div class="field">
             <v-text-field
               v-model="messages"
@@ -16,7 +16,7 @@
         </v-col>
       </v-row>
       <v-row align="center">
-        <v-col class="d-flex" cols="12" sm="6">
+        <v-col class="d-flex" cols="12" sm="12">
           <div class="field">
             <v-text-field
               v-model="appels"
@@ -30,7 +30,7 @@
         </v-col>
       </v-row>
       <v-row align="center">
-        <v-col class="d-flex" cols="12" sm="6">
+        <v-col class="d-flex" cols="12" sm="12">
           <div class="field">
             <v-text-field
               v-model="communFriends"
@@ -57,9 +57,9 @@ export default {
   data() {
     return {
       form: {
-        messages: 0,
-        appels: 0,
-        communFriends: 0,
+        messages: "",
+        appels: "",
+        communFriends: "",
       },
     };
   },

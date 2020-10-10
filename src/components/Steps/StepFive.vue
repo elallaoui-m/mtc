@@ -2,11 +2,11 @@
   <div style="padding: 2rem 3rem; text-align: left">
     <div class="field">
       <v-row align="center">
-        <v-col class="d-flex" cols="12" sm="6">
+        <v-col class="d-flex" cols="12" sm="12">
           <div class="field">
             <v-text-field
               v-model="embrasses"
-              label="Nombre des embrasses"
+              label="Nombre de fois que vous avez embresser ?"
               type="number"
             ></v-text-field>
             <p v-if="$v.form.embrasses.$error" class="help is-danger">
@@ -16,11 +16,11 @@
         </v-col>
       </v-row>
       <v-row align="center">
-        <v-col class="d-flex" cols="12" sm="6">
+        <v-col class="d-flex" cols="12" sm="12">
           <div class="field">
             <v-text-field
               v-model="sex"
-              label="Nombre des sex"
+              label="Nombre de fois que vous avez fait de l'amour ?"
               type="number"
             ></v-text-field>
             <p v-if="$v.form.sex.$error" class="help is-danger">
@@ -30,11 +30,11 @@
         </v-col>
       </v-row>
       <v-row align="center">
-        <v-col class="d-flex" cols="12" sm="6">
+        <v-col class="d-flex" cols="12" sm="12">
           <div class="field">
             <v-text-field
               v-model="meetParents"
-              label="Nombre des amis communs"
+              label="Vous avez deja recontrer ses parents ?"
               type="number"
             ></v-text-field>
             <p v-if="$v.form.meetParents.$error" class="help is-danger">
@@ -57,9 +57,9 @@ export default {
   data() {
     return {
       form: {
-        embrasses: 0,
-        sex: 0,
-        meetParents: 0,
+        embrasses: "",
+        sex: "",
+        meetParents: "",
       },
     };
   },
