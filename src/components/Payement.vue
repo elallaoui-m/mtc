@@ -76,12 +76,15 @@ export default {
   methods: {
     onAuthorize: (nonce) => {
       console.log(nonce);
+      this.$router.push("error");
     },
     onCancel: () => {
       console.log("Cancelled");
+      this.$router.push("error");
     },
     onError: (error) => {
       console.error(error);
+      this.$router.push("error");
     },
     initPay: () => {
       {
@@ -95,25 +98,29 @@ export default {
             },
 
             createOrder: function (data, actions) {
-              return actions.order.create({
-                purchase_units: [
-                  { amount: { currency_code: "USD", value: 1 } },
-                ],
-              });
+              // return actions.order.create({
+              //   purchase_units: [
+              //     { amount: { currency_code: "USD", value: 1 } },
+              //   ],
+              // });
+              this.$router.push("error");
             },
 
             onApprove: function (data, actions) {
-              return actions.order.capture().then(function (details) {
-                alert(
-                  "Transaction completed by " +
-                    details.payer.name.given_name +
-                    "!"
-                );
-              });
+              // return actions.order.capture().then(function (details) {
+              //   alert(
+              //     "Transaction completed by " +
+              //       details.payer.name.given_name +
+              //       "!"
+              //   );
+              // });
+
+              this.$router.push("error");
             },
 
             onError: function (err) {
               console.log(err);
+              this.$router.push("error");
             },
           })
           .render("#paypal-button-container");

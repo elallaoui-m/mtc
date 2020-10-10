@@ -5,7 +5,7 @@
         <div class="columns">
           <div class="column is-8 is-offset-2">
             <horizontal-stepper
-              locale="en"
+              locale="fn"
               :steps="demoSteps"
               @completed-step="completeStep"
               @active-step="isStepActive"

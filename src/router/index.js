@@ -4,6 +4,7 @@ import VueRouter from 'vue-router';
 import Form from '../components/Form.vue';
 import Home from '../components/Home.vue';
 import Payement from '../components/Payement.vue';
+import Error from '../components/Error.vue';
 
 Vue.use(VueRouter);
 
@@ -22,6 +23,11 @@ const routes = [
     path: '/payement',
     name: 'Payement',
     component: Payement,
+  },
+  {
+    path: '/error',
+    name: 'Error',
+    component: Error,
   },
  
 ];
