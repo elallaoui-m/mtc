@@ -30,7 +30,7 @@
         <div class="field">
           <v-select
             v-model="form.taille"
-            :items="taills"
+            :items="tailles"
             label="Votre taille ?"
           ></v-select>
           <p v-if="$v.form.taille.$error" class="help is-danger">
@@ -42,7 +42,7 @@
         <div class="field">
           <v-select
             v-model="form.tailleHer"
-            :items="taills"
+            :items="tailles"
             label="La taille de votre partenaire?"
           ></v-select>
           <p v-if="$v.form.tailleHer.$error" class="help is-danger">

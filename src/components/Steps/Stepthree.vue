@@ -1,49 +1,43 @@
 <template>
   <div style="padding: 2rem 3rem; text-align: left">
     <div class="field">
-      <label class="label">Username</label>
-      <div class="control">
-        <input
-          :class="['input', $v.form.username.$error ? 'is-danger' : '']"
-          type="text"
-          placeholder="Text input"
-          v-model="form.username"
-        />
-      </div>
-      <p v-if="$v.form.username.$error" class="help is-danger">
-        This username is invalid
-      </p>
-    </div>
-    <div class="field">
-      <label class="label">Email</label>
-      <div class="control">
-        <input
-          :class="['input', $v.form.demoEmail.$error ? 'is-danger' : '']"
-          type="text"
-          placeholder="Email input"
-          v-model="form.demoEmail"
-        />
-      </div>
-      <p v-if="$v.form.demoEmail.$error" class="help is-danger">
-        This email is invalid
-      </p>
-    </div>
-    <div class="field">
-      <label class="label">Message</label>
-      <div class="control">
-        <textarea
-          :class="['textarea', $v.form.message.$error ? 'is-danger' : '']"
-          placeholder="Textarea"
-          v-model="form.message"
-        ></textarea>
-      </div>
+      <v-row align="center">
+        <v-col class="d-flex" cols="12" sm="6">
+          <div class="field">
+            <v-combobox
+              v-model="centre"
+              :items="items"
+              label="Tes centres d'intérêt"
+              multiple
+              chips
+            ></v-combobox>
+            <p v-if="$v.form.eyesColor.$error" class="help is-danger">
+              Champs requis
+            </p>
+          </div>
+        </v-col>
+        <v-col class="d-flex" cols="12" sm="6">
+          <div class="field">
+            <v-combobox
+              v-model="centreHer"
+              :items="items"
+              label="Ses centres d'intérêt"
+              multiple
+              chips
+            ></v-combobox>
+            <p v-if="$v.form.eyesColorHer.$error" class="help is-danger">
+              Champs requis
+            </p>
+          </div>
+        </v-col>
+      </v-row>
     </div>
   </div>
 </template>
 
 <script>
 import { validationMixin } from "vuelidate";
-import { required, email } from "vuelidate/lib/validators";
+import { required } from "vuelidate/lib/validators";
 
 export default {
   props: ["clickedNext", "currentStep"],
@@ -51,22 +45,30 @@ export default {
   data() {
     return {
       form: {
-        username: "",
-        demoEmail: "",
-        message: "",
+        dance: "",
+        sport: "",
+        pratiquant: "",
+        centre: "",
+        danceHer: "",
+        sportHer: "",
+        pratiquantHer: "",
+        centreHer: "",
       },
+      items: [],
     };
   },
   validations: {
     form: {
-      username: {
+      dance: {
         required,
       },
-      demoEmail: {
+      sport: {
         required,
-        email,
       },
-      message: {
+      pratiquant: {
+        required,
+      },
+      centre: {
         required,
       },
     },
@@ -79,7 +81,7 @@ export default {
         } else {
           this.$emit("can-continue", { value: false });
         }
-      },  
+      },
       deep: true,
     },
     clickedNext(val) {
