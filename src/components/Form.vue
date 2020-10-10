@@ -22,7 +22,7 @@
 import HorizontalStepper from "vue-stepper";
 
 // This components will have the content for each stepper step.
-// import StepOne from "./Steps/StepOne.vue";
+import StepOne from "./Steps/StepOne.vue";
 import StepTwo from "./Steps/StepTwo.vue";
 import StepThree from "./Steps/StepThree.vue";
 import StepFour from "./Steps/StepFour.vue";
@@ -40,7 +40,7 @@ export default {
           icon: "info",
           name: "A propos de vous",
           title: "A propos de vous",
-          component: StepThree,
+          component: StepOne,
           completed: false,
         },
         {
@@ -73,8 +73,8 @@ export default {
         },
         {
           icon: "favorite",
-          name: "ce qui fais la difference",
-          title: "ce qui fais la difference",
+          name: "ce qui fait la difference",
+          title: "ce qui fait la difference",
           component: StepSix,
           completed: false,
         },

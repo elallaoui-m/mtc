@@ -1,49 +1,55 @@
 <template>
   <div style="padding: 2rem 3rem; text-align: left">
     <div class="field">
-      <label class="label">Username</label>
-      <div class="control">
-        <input
-          :class="['input', $v.form.username.$error ? 'is-danger' : '']"
-          type="text"
-          placeholder="Text input"
-          v-model="form.username"
-        />
-      </div>
-      <p v-if="$v.form.username.$error" class="help is-danger">
-        This username is invalid
-      </p>
-    </div>
-    <div class="field">
-      <label class="label">Email</label>
-      <div class="control">
-        <input
-          :class="['input', $v.form.demoEmail.$error ? 'is-danger' : '']"
-          type="text"
-          placeholder="Email input"
-          v-model="form.demoEmail"
-        />
-      </div>
-      <p v-if="$v.form.demoEmail.$error" class="help is-danger">
-        This email is invalid
-      </p>
-    </div>
-    <div class="field">
-      <label class="label">Message</label>
-      <div class="control">
-        <textarea
-          :class="['textarea', $v.form.message.$error ? 'is-danger' : '']"
-          placeholder="Textarea"
-          v-model="form.message"
-        ></textarea>
-      </div>
+      <v-row align="center">
+        <v-col class="d-flex" cols="12" sm="6">
+          <div class="field">
+            <v-text-field
+              v-model="embrasses"
+              label="Nombre des embrasses"
+              type="number"
+            ></v-text-field>
+            <p v-if="$v.form.embrasses.$error" class="help is-danger">
+              Champs requis
+            </p>
+          </div>
+        </v-col>
+      </v-row>
+      <v-row align="center">
+        <v-col class="d-flex" cols="12" sm="6">
+          <div class="field">
+            <v-text-field
+              v-model="sex"
+              label="Nombre des sex"
+              type="number"
+            ></v-text-field>
+            <p v-if="$v.form.sex.$error" class="help is-danger">
+              Champs requis
+            </p>
+          </div>
+        </v-col>
+      </v-row>
+      <v-row align="center">
+        <v-col class="d-flex" cols="12" sm="6">
+          <div class="field">
+            <v-text-field
+              v-model="meetParents"
+              label="Nombre des amis communs"
+              type="number"
+            ></v-text-field>
+            <p v-if="$v.form.meetParents.$error" class="help is-danger">
+              Champs requis
+            </p>
+          </div>
+        </v-col>
+      </v-row>
     </div>
   </div>
 </template>
 
 <script>
 import { validationMixin } from "vuelidate";
-import { required, email } from "vuelidate/lib/validators";
+import { required } from "vuelidate/lib/validators";
 
 export default {
   props: ["clickedNext", "currentStep"],
@@ -51,22 +57,21 @@ export default {
   data() {
     return {
       form: {
-        username: "",
-        demoEmail: "",
-        message: "",
+        embrasses: 0,
+        sex: 0,
+        meetParents: 0,
       },
     };
   },
   validations: {
     form: {
-      username: {
+      embrasses: {
         required,
       },
-      demoEmail: {
+      sex: {
         required,
-        email,
       },
-      message: {
+      meetParents: {
         required,
       },
     },
@@ -79,7 +84,7 @@ export default {
         } else {
           this.$emit("can-continue", { value: false });
         }
-      },  
+      },
       deep: true,
     },
     clickedNext(val) {
