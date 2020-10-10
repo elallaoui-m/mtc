@@ -103,7 +103,7 @@
               :search-input.sync="search"
               hide-selected
               hint="Maximum 3"
-              label="Ajouter"
+              label="Ajouter 3 de ses defauts"
               multiple
               persistent-hint
               small-chips
@@ -139,10 +139,10 @@ export default {
   data() {
     return {
       form: {
-        yourQualities: [""],
-        herQualities: [""],
-        yourfouls: [""],
-        herfouls: [""],
+        yourQualities: [],
+        herQualities: [],
+        yourfouls: [],
+        herfouls: [],
       },
       qualities: ["Adorable", "Aimable", "Amusante"],
       fouls: ["Agressive", "Aigri", "Anxieux"],

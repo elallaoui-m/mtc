@@ -5,7 +5,7 @@
         <v-col class="d-flex" cols="12" sm="12">
           <div class="field">
             <v-text-field
-              v-model="embrasses"
+              v-model="form.embrasses"
               label="Nombre de fois que vous avez embresser ?"
               type="number"
             ></v-text-field>
@@ -19,7 +19,7 @@
         <v-col class="d-flex" cols="12" sm="12">
           <div class="field">
             <v-text-field
-              v-model="sex"
+              v-model="form.sex"
               label="Nombre de fois que vous avez fait de l'amour ?"
               type="number"
             ></v-text-field>
@@ -33,7 +33,7 @@
         <v-col class="d-flex" cols="12" sm="12">
           <div class="field">
             <v-text-field
-              v-model="meetParents"
+              v-model="form.meetParents"
               label="Vous avez deja recontrer ses parents ?"
               type="number"
             ></v-text-field>

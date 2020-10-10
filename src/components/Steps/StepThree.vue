@@ -5,7 +5,7 @@
         <v-col class="d-flex" cols="12" sm="6">
           <div class="field">
             <v-combobox
-              v-model="centre"
+              v-model="form.centre"
               :items="items"
               label="Tes centres d'intérêt"
               multiple
@@ -19,7 +19,7 @@
         <v-col class="d-flex" cols="12" sm="6">
           <div class="field">
             <v-combobox
-              v-model="centreHer"
+              v-model="form.centreHer"
               :items="items"
               label="Ses centres d'intérêt"
               multiple
@@ -36,7 +36,7 @@
           <div class="field">
             <v-radio-group
               label="Vous aimez la danse ?"
-              v-model="danse"
+              v-model="form.danse"
               :mandatory="true"
             >
               <v-radio label="Oui" value="oui"></v-radio>
@@ -51,7 +51,7 @@
           <div class="field">
             <v-radio-group
               label="Votre partenaire aime la danse ?"
-              v-model="danseHer"
+              v-model="form.danseHer"
               :mandatory="true"
             >
               <v-radio label="Oui" value="oui"></v-radio>
@@ -68,7 +68,7 @@
           <div class="field">
             <v-radio-group
               label="Vous faites du sport ?"
-              v-model="sport"
+              v-model="form.sport"
               :mandatory="true"
             >
               <v-radio label="Oui" value="oui"></v-radio>
@@ -83,7 +83,7 @@
           <div class="field">
             <v-radio-group
               label="Votre partenaire fait du sport ?"
-              v-model="sportHer"
+              v-model="form.sportHer"
               :mandatory="true"
             >
               <v-radio label="Oui" value="oui"></v-radio>
@@ -100,7 +100,7 @@
           <div class="field">
             <v-radio-group
               label="Vous etes pratiquant ?"
-              v-model="pratiquant"
+              v-model="form.pratiquant"
               :mandatory="true"
             >
               <v-radio label="Oui" value="oui"></v-radio>
@@ -115,7 +115,7 @@
           <div class="field">
             <v-radio-group
               label="Votre partenaire est pratiquant(e) ?"
-              v-model="pratiquantHer"
+              v-model="form.pratiquantHer"
               :mandatory="true"
             >
               <v-radio label="Oui" value="oui"></v-radio>

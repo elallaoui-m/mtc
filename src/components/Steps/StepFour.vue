@@ -5,7 +5,7 @@
         <v-col class="d-flex" cols="12" sm="12">
           <div class="field">
             <v-text-field
-              v-model="messages"
+              v-model="form.messages"
               label="Nombre des messages"
               type="number"
             ></v-text-field>
@@ -19,7 +19,7 @@
         <v-col class="d-flex" cols="12" sm="12">
           <div class="field">
             <v-text-field
-              v-model="appels"
+              v-model="form.appels"
               label="Nombre des appels"
               type="number"
             ></v-text-field>
@@ -33,7 +33,7 @@
         <v-col class="d-flex" cols="12" sm="12">
           <div class="field">
             <v-text-field
-              v-model="communFriends"
+              v-model="form.communFriends"
               label="Nombre des amis communs"
               type="number"
             ></v-text-field>
