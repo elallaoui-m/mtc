@@ -5,6 +5,7 @@
         <div class="columns">
           <div class="column is-8 is-offset-2">
             <horizontal-stepper
+              locale="fr"
               :steps="demoSteps"
               @completed-step="completeStep"
               @active-step="isStepActive"
@@ -24,7 +25,7 @@ import HorizontalStepper from "vue-stepper";
 // This components will have the content for each stepper step.
 import StepOne from "./Steps/StepOne.vue";
 import StepTwo from "./Steps/StepTwo.vue";
-import StepThree from "./Steps/StepThree.vue";  
+import StepThree from "./Steps/StepThree.vue";
 import StepFour from "./Steps/StepFour.vue";
 import StepFive from "./Steps/StepFive.vue";
 import StepSix from "./Steps/StepSix.vue";
@@ -102,7 +103,8 @@ export default {
     },
     // Executed when @stepper-finished event is triggered
     alert(payload) {
-      alert(payload);
+      console.log(JSON.stringify(payload));
+      this.$router.push("payement");
     },
   },
 };

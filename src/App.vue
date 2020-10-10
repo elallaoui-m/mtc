@@ -4,7 +4,7 @@
       <div class="d-flex align-center">
         <v-img
           alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
+          class="shrink mt-1 hidden-down"
           contain
           min-width="100"
           src="@/assets/logo_mtc.png"
