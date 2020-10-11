@@ -16,8 +16,6 @@
         ></v-img>
       </div>
 
-      <v-card-text> </v-card-text>
-
       <v-list-item>
         <v-list-item-icon>
           <v-icon medium color="yellow darken-4"> mdi-star </v-icon>
@@ -41,9 +39,16 @@
           </div>
         </v-list-item-content>
       </v-list-item>
-      <v-card-text> </v-card-text>
 
       <v-divider class="mx-4"></v-divider>
+
+      <v-credit-card @change="creditInfoChanged" />
+      <router-link to="/payementFin"
+        ><v-btn class="py-8" color="primary" block @click="reserve"
+          >Payer maintenant
+        </v-btn></router-link
+      >
+      <v-card-text class="text-center"> Ou </v-card-text>
       <div id="smart-button-container">
         <div style="text-align: center">
           <div id="paypal-button-container"></div>
@@ -59,11 +64,17 @@
 ></script>
 <script>
 import router from "../router";
+
 export default {
   name: "Hello",
   components: {},
   data: function () {
     return {
+      name: "",
+      cardNumber: "",
+      expiration: "",
+      security: "",
+      cardName: null,
       environment: "sandbox",
       token:
         "access_token$sandbox$dwz59fbryg4v6fs9$39d905b818f403943a3d9406bc3a74d6",
@@ -75,12 +86,24 @@ export default {
   },
 
   methods: {
+    creditInfoChanged(values) {
+      for (const key in values) {
+        this[key] = values[key];
+      }
+    },
+    cardChanged(cardName) {
+      this.cardName = cardName;
+    },
     onAuthorize: (nonce) => {
       console.log(nonce);
       router.push("/error");
     },
     onCancel: () => {
       console.log("Cancelled");
+      router.push("/error");
+    },
+    reserve: () => {
+      console.log("success");
       router.push("/error");
     },
     onError: (error) => {

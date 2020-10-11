@@ -17,6 +17,7 @@
     "roboto-fontface": "*",
     "sass": "^1.27.0",
     "sass-loader": "^10.0.3",
+    "v-credit-card": "^1.2.4",
     "vue": "^2.6.11",
     "vue-paypal-checkout": "^3.2.0",
     "vue-router": "^3.4.6",
