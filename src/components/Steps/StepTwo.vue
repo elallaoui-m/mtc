@@ -180,6 +180,8 @@
         </div>
       </v-col>
     </v-row>
+
+    <!-- hello -->
   </div>
 </template>
 
@@ -233,6 +235,12 @@ export default {
         required,
       },
       clothsStyleHer: {
+        required,
+      },
+      astro: {
+        required,
+      },
+      astroHer: {
         required,
       },
     },

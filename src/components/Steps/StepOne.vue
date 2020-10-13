@@ -78,6 +78,54 @@
         </div>
       </v-col>
     </v-row>
+    <v-row align="center">
+      <v-col class="d-flex" cols="12" sm="6">
+        <div class="field">
+          <v-select
+            v-model="form.astro"
+            :items="astro"
+            label="Votre signe astrologique"
+            item-text="name"
+          >
+            <template v-slot:selection="{ item }">
+              <v-img
+                class="mb-3"
+                max-height="48"
+                max-width="48"
+                :src="item.img"
+              />
+              <span>{{ item.name }}</span>
+            </template>
+          </v-select>
+          <p v-if="$v.form.astro.$error" class="help is-danger">
+            Champs requis
+          </p>
+        </div>
+      </v-col>
+      <v-col class="d-flex" cols="12" sm="6">
+        <div class="field">
+          <v-select
+            v-model="form.astroHer"
+            :items="astro"
+            item-text="name"
+            label="Le signe astrologique de votre partenaire"
+          >
+            <template v-slot:selection="{ item }">
+              <v-img
+                class="mb-3"
+                max-height="48"
+                max-width="48"
+                :src="item.img"
+              />
+              <span>{{ item.name }}</span>
+            </template>
+          </v-select>
+          <p v-if="$v.form.astroHer.$error" class="help is-danger">
+            Champs requis
+          </p>
+        </div>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
@@ -97,6 +145,8 @@ export default {
         tailleHer: "",
         poids: "",
         poidsHer: "",
+        astro: "",
+        astroHer: "",
       },
       tailles: [
         "150-159cm",
@@ -112,6 +162,20 @@ export default {
         "80-89kg",
         "90-99kg",
         "+ de 100kg",
+      ],
+      astro: [
+        { img: require("@/assets/Belier.png"), name: "Bélier " },
+        { img: require("@/assets/Taureau.png"), name: "Taureau " },
+        { img: require("@/assets/Gemeaux.png"), name: "Gémeaux " },
+        { img: require("@/assets/Cancer.png"), name: "Cancer " },
+        { img: require("@/assets/Lion.png"), name: "Lion " },
+        { img: require("@/assets/Vierge.png"), name: "Vierge " },
+        { img: require("@/assets/Balance.png"), name: "Balance " },
+        { img: require("@/assets/Scorpion.png"), name: "Scorpion " },
+        { img: require("@/assets/Sagittaire.png"), name: "Sagittaire " },
+        { img: require("@/assets/Capricorne.png"), name: "Capricorne " },
+        { img: require("@/assets/Verseau.png"), name: "Verseau " },
+        { img: require("@/assets/Poissons.png"), name: "Poissons " },
       ],
     };
   },
@@ -133,6 +197,12 @@ export default {
         required,
       },
       poidsHer: {
+        required,
+      },
+      astro: {
+        required,
+      },
+      astroHer: {
         required,
       },
     },
