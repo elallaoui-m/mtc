@@ -128,7 +128,7 @@
               </span> -->
             </template>
           </v-select>
-          <p v-if="$v.form.hairLong.$error" class="help is-danger">
+          <p v-if="$v.form.hairLongHer.$error" class="help is-danger">
             Champs requis
           </p>
         </div>
@@ -204,7 +204,7 @@ export default {
         clothsStyle: "",
         clothsStyleHer: "",
       },
-      eyes: ["Bleue", "Maron", "Noir"],
+      eyes: ["Blue", "Maron", "Noir"],
       hair: ["Chatain foncé", "Chatain clair", "Blond", "Noir"],
       hairLong: ["Tres court", "Court", "Long"],
       clothsStyle: ["Classique", "Sport", "Chic", "Très chic"],
@@ -235,12 +235,6 @@ export default {
         required,
       },
       clothsStyleHer: {
-        required,
-      },
-      astro: {
-        required,
-      },
-      astroHer: {
         required,
       },
     },
